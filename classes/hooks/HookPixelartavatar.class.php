@@ -11,9 +11,10 @@ class PluginPixelartavatar_HookPixelartavatar extends Hook {
         $this->AddDelegateHook('module_user_add_after','sex',__CLASS__,-3);
     }
     
-    public function registration() {
+    public function registration($aParams) {
         $this->Viewer_Assign('postfix',func_generator(5));
-        return $this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__).'inject_registration.tpl');
+        $sContent=$this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__).'inject_registration.tpl') . $aParams['content'];
+        return $sContent;
     }
 
     public function sex($aVars) {        
