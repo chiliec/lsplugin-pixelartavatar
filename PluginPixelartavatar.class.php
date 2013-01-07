@@ -9,12 +9,10 @@ if (!class_exists('Plugin')) {
 
 class PluginPixelartavatar extends Plugin {
 
-    // Объявление делегирований (нужны для того, чтобы назначить свои экшны и шаблоны)
-    public $aDelegates = array(
-    );
-
     // Объявление переопределений (модули, мапперы и сущности)
     protected $aInherits=array(
+        'module' => array('ModuleUser', 'ModuleAvatar'),
+        'entity'  => array('ModuleUser_EntityUser'=>'_ModuleUser_EntityUser')
     );
 
     // Активация плагина
